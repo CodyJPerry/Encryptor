@@ -17,11 +17,26 @@ class Encryptor
 		letters = string.split("")
 		#2. Encrypt those letters one at a time
 		results = []
-		letters.each do |letter| 
-			encrypted_letter = encrypt_letter(letter)
-			results.push(encrypted_letter)
+		letters.collect do |letter| 
+			encrypted_letter = results.push(encrypt_letter(letter))
+			
 		end
 		#3. Join the results back together into one string
 		results.join("")
 	end
+
+	def decrypt_letter(letter) 
+		lowercase_letter = letter.downcase
+		cipher[lowercase_letter]
+	end
+
+	def decrypt(string) 
+		decrypt_letters = string.split("")
+		decrypt_results = []
+		decrypt_letters.collect do |letter|
+			decrypted_letter = decrypt_results.push(decrypt_letter(letter))
+	end
+	decrypt_results.join("")
+end
+
 end
